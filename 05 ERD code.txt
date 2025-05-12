@@ -1,0 +1,41 @@
+CREATE TABLE Car (
+car_id_car number,
+make_car text,
+model_car text,
+PRIMARY KEY (car_id_car),
+);
+
+CREATE TABLE Customer (
+customer_id_customer number,
+customer_name_customer text,
+customer_address_customer text,
+town_customer text,
+postcode_customer text,
+telephone_number_customer text
+PRIMARY KEY (customer_id_customer),
+);
+
+CREATE TABLE Salesperson (
+staff_id_salesperson number,
+staff_name_salesperson text,
+start_date_salesperson date,
+basic_salary_salesperson number,
+commission_rate_salesperson number,
+cv_salesperson text,
+PRIMARY KEY (staff_id_salesperson),
+);
+
+CREATE TABLE Order (
+order_id_order number,
+registration_number_order text,
+date_registered_order date,
+price_order number,
+car_order number,
+customer_order number,
+salesperson_order number,
+vat_order number,
+PRIMARY KEY (order_id_order),
+FOREIGN KEY (car_order) REFERENCES Car(car_id_car)
+FOREIGN KEY (customer_order) REFERENCES Customer(customer_id_customer)
+FOREIGN KEY (salesperson_order) REFERENCES Salesperson(staff_id_salesperson)
+);
